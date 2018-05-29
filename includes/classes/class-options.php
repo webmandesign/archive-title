@@ -10,7 +10,8 @@
  *
  *   0) Init
  *  10) Options
- *  20) Getters
+ *  20) Sanitize
+ *  30) Getters
  * 100) Others
  */
 class Archive_Title_Options {
@@ -112,7 +113,10 @@ class Archive_Title_Options {
 
 				register_setting(
 					$admin_page_id,
-					self::$option_name
+					self::$option_name,
+					array(
+						'sanitize_callback' => __CLASS__ . '::sanitize',
+					)
 				);
 
 				add_settings_section(
@@ -177,7 +181,89 @@ class Archive_Title_Options {
 
 
 	/**
-	 * 20) Getters
+	 * 20) Sanitize
+	 */
+
+		/**
+		 * Sanitize/validate plugin options.
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  array $options
+		 */
+		public static function sanitize( $options = array() ) {
+
+			// Helper variables
+
+				$allowed_keys = array(
+					'labels'        => 'array',
+					'labels_action' => 'text',
+				);
+
+
+			// Processing
+
+				$options = array_intersect_key( (array) $options, $allowed_keys );
+
+				foreach ( $allowed_keys as $key => $sanitize_type ) {
+					$allowed_value = (array) self::get_option_atts( $key );
+
+					if (
+						'text' === $sanitize_type
+						&& in_array( $options[ $key ], $allowed_value )
+					) {
+
+						/**
+						 * Sanitizing a text value:
+						 * 1. check if it can be found in a valid values array,
+						 * 2. even then apply the `sanitize_text_field()`.
+						 */
+						$options[ $key ] = sanitize_text_field( $options[ $key ] );
+
+					} else if ( 'array' === $sanitize_type ) {
+
+						/**
+						 * Sanitizing an array of multiple values:
+						 * 1. strip the value array to contain only valid values,
+						 */
+						$options[ $key ] = array_intersect(
+							$options[ $key ],
+							$allowed_value
+						);
+						/**
+						 * 2. sanitize each value in array with `sanitize_text_field`.
+						 */
+						$options[ $key ] = array_map(
+							'sanitize_text_field',
+							(array) $options[ $key ]
+						);
+
+					} else {
+
+						/**
+						 * Well, the option value does not sanitize to our needs, so,
+						 * sorry, but it goes out! (In that case a default value will
+						 * be loaded with `self::get()` method.)
+						 */
+						unset( $options[ $key ] );
+
+					}
+				}
+
+
+			// Output
+
+				return $options;
+
+		} // /sanitize
+
+
+
+
+
+	/**
+	 * 30) Getters
 	 */
 
 		/**
@@ -206,11 +292,110 @@ class Archive_Title_Options {
 
 				if ( isset( self::$options[ $option ] ) ) {
 					return self::$options[ $option ];
+				} else if ( isset( self::$defaults[ $option ] ) ) {
+					return self::$defaults[ $option ];
 				} else {
 					return null;
 				}
 
 		} // /get
+
+
+
+		/**
+		 * Get option attributes.
+		 *
+		 * Returns option attributes such as valid values or form field setup.
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  string $option
+		 * @param  string $get
+		 */
+		public static function get_option_atts( $option, $get = 'valid_values' ) {
+
+			// Helper variables
+
+				$output = false;
+				$values = array(
+
+					'labels' => array(
+
+						'valid_values' => array(
+							'is_author',
+							'is_category',
+							'is_post_type_archive',
+							'is_tag',
+							'is_tax',
+						),
+
+						'form_field_setup' => array(
+							'is_author' => array(
+								'label'       => __( 'Author archive', 'archive-title' ),
+								'description' => __( 'The "Author:" label.', 'archive-title' ),
+							),
+							'is_category' => array(
+								'label'       => __( 'Category archive', 'archive-title' ),
+								'description' => __( 'The "Category:" label.', 'archive-title' ),
+							),
+							'is_post_type_archive' => array(
+								'label'       => __( 'Post type archive', 'archive-title' ),
+								'description' => __( 'The "Archive:" label.', 'archive-title' ),
+							),
+							'is_tag' => array(
+								'label'       => __( 'Tag archive', 'archive-title' ),
+								'description' => __( 'The "Tag:" label.', 'archive-title' ),
+							),
+							'is_tax' => array(
+								'label'       => __( 'Taxonomy archive', 'archive-title' ),
+								'description' => __( 'The "Taxonomy name:" label.', 'archive-title' ) . ' ' . __( 'Every custom taxonomy has a different name.', 'archive-title' ),
+							),
+						),
+
+					),
+
+					'labels_action' => array(
+
+						'valid_values' => array(
+							'remove',
+							'remove-accessibly',
+						),
+
+						'form_field_setup' => array(
+							'remove' => array(
+								'label' => __( 'Remove labels', 'archive-title' ),
+							),
+							'remove-accessibly' => array(
+								'label'       => __( 'Hide labels accessibly', 'archive-title' ),
+								'description' => __( 'Keeps labels readable for assistive technology.', 'archive-title' ) . ' ' .sprintf(
+									__( 'Please make sure your theme provides styles for the "%s" CSS class.', 'archive-title' ),
+									ARCHIVE_TITLE_CSS_CLASS_A11Y
+								),
+							),
+						),
+
+					),
+
+				);
+
+
+			// Processing
+
+				if ( isset( $values[ $option ] ) ) {
+					$output = $values[ $option ];
+				}
+
+
+			// Output
+
+				if ( isset( $output[ $get ] ) ) {
+					return $output[ $get ];
+				} else {
+					return $output['values'];
+				}
+
+		} // /get_option_atts
 
 
 

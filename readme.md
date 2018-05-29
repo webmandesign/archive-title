@@ -10,7 +10,7 @@ Plugin version numbers consist of `MAJOR.MINOR.PATCH` numbers:
 
 * **MAJOR** - When a major plugin functionality is added.
 * **MINOR** - When a minor plugin functionality is added.
-* **PATCH** - When a plugin main functionality is patched.
+* **PATCH** - When a plugin functionality is patched.
 
 ---
 

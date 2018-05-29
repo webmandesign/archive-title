@@ -35,18 +35,20 @@ class Archive_Title {
 		 */
 		private function __construct() {
 
-			// Helper variables
-
-				if ( ! defined( 'ARCHIVE_TITLE_CSS_CLASS_A11Y' ) ) {
-					define( 'ARCHIVE_TITLE_CSS_CLASS_A11Y', 'screen-reader-text' );
-				}
-
-
 			// Processing
 
 				// Setup
 
 					self::load_plugin_textdomain();
+
+					if ( ! defined( 'ARCHIVE_TITLE_CSS_CLASS_A11Y' ) ) {
+						/**
+						 * Defining `ARCHIVE_TITLE_CSS_CLASS_A11Y` constant conditionally
+						 * here in `init` action hook so a possible (child) theme definition
+						 * can be picked up first.
+						 */
+						define( 'ARCHIVE_TITLE_CSS_CLASS_A11Y', 'screen-reader-text' );
+					}
 
 				// Hooks
 

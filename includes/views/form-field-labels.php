@@ -13,35 +13,7 @@
 
 $setting_name  = 'labels';
 $setting_value = (array) Archive_Title_Options::get( $setting_name );
-
-$items = array(
-
-	'is_author' => array(
-		'label'       => __( 'Author archive', 'archive-title' ),
-		'description' => __( 'The "Author:" label.', 'archive-title' ),
-	),
-
-	'is_category' => array(
-		'label'       => __( 'Category archive', 'archive-title' ),
-		'description' => __( 'The "Category:" label.', 'archive-title' ),
-	),
-
-	'is_post_type_archive' => array(
-		'label'       => __( 'Post type archive', 'archive-title' ),
-		'description' => __( 'The "Archive:" label.', 'archive-title' ),
-	),
-
-	'is_tag' => array(
-		'label'       => __( 'Tag archive', 'archive-title' ),
-		'description' => __( 'The "Tag:" label.', 'archive-title' ),
-	),
-
-	'is_tax' => array(
-		'label'       => __( 'Taxonomy archive', 'archive-title' ),
-		'description' => __( 'The "Taxonomy name:" label.', 'archive-title' ) . ' ' . __( 'Every custom taxonomy has a different name.', 'archive-title' ),
-	),
-
-);
+$items         = (array) Archive_Title_Options::get_option_atts( $setting_name, 'form_field_setup' );
 
 
 

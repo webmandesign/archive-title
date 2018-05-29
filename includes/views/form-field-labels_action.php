@@ -13,22 +13,7 @@
 
 $setting_name  = 'labels_action';
 $setting_value = (string) Archive_Title_Options::get( $setting_name );
-
-$items = array(
-
-	'remove' => array(
-		'label' => __( 'Remove labels', 'archive-title' ),
-	),
-
-	'remove-accessibly' => array(
-		'label'       => __( 'Hide labels accessibly', 'archive-title' ),
-		'description' => __( 'Keeps labels readable for assistive technology.', 'archive-title' ) . ' ' .sprintf(
-			__( 'Please make sure your theme provides styles for the "%s" CSS class.', 'archive-title' ),
-			ARCHIVE_TITLE_CSS_CLASS_A11Y
-		),
-	),
-
-);
+$items         = (array) Archive_Title_Options::get_option_atts( $setting_name, 'form_field_setup' );
 
 
 

@@ -4,7 +4,7 @@
  * Plugin Name:  Archive Title by WebMan
  * Plugin URI:   https://www.webmandesign.eu/portfolio/archive-title-wordpress-plugin/
  * Description:  Provides options to control an archive page title.
- * Version:      0.9.0
+ * Version:      0.9.1
  * Author:       WebMan Design, Oliver Juhas
  * Author URI:   https://www.webmandesign.eu/
  * License:      GNU General Public License v3
@@ -21,10 +21,7 @@
  *
  * @package  Archive Title
  *
- * @todo  Sanitize.
- * @todo  Check all TODOs.
- * @todo  Readme file content (only .TXT).
- * @todo  Check all files before submitting.
+ * @todo  Check all files before submitting (https://wordpress.org/plugins/developers/add/).
  */
 
 
@@ -38,16 +35,18 @@
 	define( 'ARCHIVE_TITLE_FILE', __FILE__ );
 	define( 'ARCHIVE_TITLE_PATH', plugin_dir_path( ARCHIVE_TITLE_FILE ) ); // Trailing slashed.
 
+	/**
+	 * define( 'ARCHIVE_TITLE_CSS_CLASS_A11Y', 'screen-reader-text' );
+	 * @see  includes/classes/class-archive-title.php/Archive_Title->__construct()
+	 */
+
 
 
 
 
 /**
- * Load the functionality
+ * Load functionality
  */
 
-	// Main plugin functionality
-
-		require_once ARCHIVE_TITLE_PATH . 'includes/classes/class-archive-title.php';
-		require_once ARCHIVE_TITLE_PATH . 'includes/classes/class-options.php';
-		require_once ARCHIVE_TITLE_PATH . 'includes/classes/class-sanitize.php';
+	require_once ARCHIVE_TITLE_PATH . 'includes/classes/class-archive-title.php';
+	require_once ARCHIVE_TITLE_PATH . 'includes/classes/class-options.php';

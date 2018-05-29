@@ -21,6 +21,8 @@ Provides options to control an archive page title.
 
 * TODO
 
+@todo  Readme file content (only .TXT). Check https://wordpress.org/plugins/readme.txt and https://wordpress.org/plugins/developers/readme-validator/.
+
 = Additional Resources =
 
 * [Have a question?](https://wordpress.org/support/plugin/archive-title/)
