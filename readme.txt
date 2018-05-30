@@ -3,6 +3,7 @@ Contributors:      webmandesign
 Donate link:       https://www.webmandesign.eu/
 Author URI:        https://www.webmandesign.eu/
 Plugin URI:        https://www.webmandesign.eu/portfolio/archive-title-wordpress-plugin/
+Requires PHP:      5.6.0
 Requires at least: 4.7
 Tested up to:      4.9.6
 Stable tag:        1.0.0
@@ -15,13 +16,13 @@ Provides options to control an archive page title.
 
 == Description ==
 
-@TODO
+This plugin provides options to tweak an archive page title, such as removing annoying archive label (see FAQ). You can remove the label for any archive page completely, or just hide it accessibly.
 
 = Features =
 
-* TODO
-
-@todo  Readme file content (only .TXT). Check https://wordpress.org/plugins/readme.txt and https://wordpress.org/plugins/developers/readme-validator/.
+* Modifying category, tag, author, custom post type and custom taxonomy archive title (no need to modify the date archive title)
+* Removing archive page title label completely
+* Hiding archive page title label accessibly (using a CSS class of `screen-reader-text`)
 
 = Additional Resources =
 
@@ -39,18 +40,33 @@ Provides options to control an archive page title.
 
 == Frequently Asked Questions ==
 
+= What is an archive page? =
+
+Archive page contains an archive - a list of posts or custom post types. WordPress recognizes 6 types of archives: category, tag, author, custom post type, custom taxonomy and date.
+
+= What is an archive label? =
+
+Title of every archive page contains an 'archive label' *(please note this is a terminology used in this plugin)*. By default it is the first text in archive title followed with colon. For example, a category archive page with title of *"Category: Uncategorized"* has an archive label of *"Category:"*.
+
 = Where can I find the plugin settings page? =
 
-This plugin integrates its settings directly into *Settings &rarr; Reading* WordPress admin page. You can edit plugin options under "Archive Title Options" section on that page.
+This plugin integrates its settings directly into ***Settings &rarr; Reading*** WordPress admin page. You can edit plugin options under "**Archive Title Options**" section on that page.
 
 = What does it mean "hiding label accessibly"? =
 
-The plugin allows you to remove the archive title label completely or to hide it accessibly. Accessible hiding causes wrapping the archive title label in a `<span class="screen-reader-text">` HTML element. Every WordPress [theme should provide styles for the `screen-reader-text` CSS class](https://make.wordpress.org/accessibility/handbook/best-practices/markup/the-css-class-screen-reader-text/). And every text wrapped in such CSS class element will be hidden from visibility, but will be still accessible for assistive devices, such as screen reader. We recommend using this option instead of removing the label completely.
+The plugin allows you to remove the archive title label completely or to hide it accessibly. Accessible hiding causes wrapping the archive title label in a `<span class="screen-reader-text">` HTML element.
+
+Every WordPress [theme should provide styles for the `screen-reader-text` CSS class](https://make.wordpress.org/accessibility/handbook/best-practices/markup/the-css-class-screen-reader-text/). And every text wrapped in such CSS class element will be hidden from visibility, but will be still accessible for assistive devices, such as screen reader.
+
+We recommend using this option instead of removing the label completely.
 
 = My theme uses a different CSS class to hide elements accessibly. Can I change it? =
 
-Yes you can. You can override the CSS class this plugin applies by defining the `ARCHIVE_TITLE_CSS_CLASS_A11Y` constant in your [child theme's](https://support.webmandesign.eu/child-theme/) `functions.php` like so:
-```define( 'ARCHIVE_TITLE_CSS_CLASS_A11Y', 'your-theme-accessibly-hidden-class' );```
+Yes you can.
+
+You can override the CSS class by defining the `ARCHIVE_TITLE_CSS_CLASS_A11Y` constant in your [child theme's](https://support.webmandesign.eu/child-theme/) `functions.php` like so:
+
+`define( 'ARCHIVE_TITLE_CSS_CLASS_A11Y', 'your-theme-accessibly-hidden-class' );`
 
 = Can I change the archive title label instead of removing it? =
 
