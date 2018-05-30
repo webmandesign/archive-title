@@ -8,10 +8,10 @@
  *
  * Contents:
  *
- *   0) Init
- *  10) Functionality
- *  20) Localization
- * 100) Others
+ *  0) Init
+ * 10) Page title
+ * 20) Getters
+ * 30) Localization
  */
 class Archive_Title {
 
@@ -86,7 +86,7 @@ class Archive_Title {
 
 
 	/**
-	 * 10) Functionality
+	 * 10) Page title
 	 */
 
 		/**
@@ -104,9 +104,9 @@ class Archive_Title {
 				$labels = (array) Archive_Title_Options::get( 'labels' );
 
 				if ( 'remove-accessibly' === Archive_Title_Options::get( 'labels_action' ) ) {
-					$title_new = '<span class="' . esc_attr( ARCHIVE_TITLE_CSS_CLASS_A11Y ) . '">%1$s </span>%2$s';
+					$title_sprintf = '<span class="' . esc_attr( ARCHIVE_TITLE_CSS_CLASS_A11Y ) . '">%1$s </span>%2$s';
 				} else {
-					$title_new = '%2$s';
+					$title_sprintf = '%2$s';
 				}
 
 
@@ -119,47 +119,19 @@ class Archive_Title {
 
 			// Processing
 
-				if ( in_array( 'is_category', $labels ) && is_category() ) {
+				$labels = array_intersect(
+					$labels,
+					(array) Archive_Title_Options::get_option_atts( 'labels' )
+				);
 
-					$title = sprintf(
-						$title_new,
-						esc_html_x( 'Category:', 'Archive title label.', 'archive-title' ),
-						single_cat_title( '', false )
-					);
-
-				} elseif ( in_array( 'is_tag', $labels ) && is_tag() ) {
-
-					$title = sprintf(
-						$title_new,
-						esc_html_x( 'Tag:', 'Archive title label.', 'archive-title' ),
-						single_tag_title( '', false )
-					);
-
-				} elseif ( in_array( 'is_author', $labels ) && is_author() ) {
-
-					$title = sprintf(
-						$title_new,
-						esc_html_x( 'Author:', 'Archive title label.', 'archive-title' ),
-						'<span class="vcard">' . get_the_author() . '</span>'
-					);
-
-				} elseif ( in_array( 'is_post_type_archive', $labels ) && is_post_type_archive() ) {
-
-					$title = sprintf(
-						$title_new,
-						esc_html_x( 'Archives:', 'Archive title label.', 'archive-title' ),
-						post_type_archive_title( '', false )
-					);
-
-				} elseif ( in_array( 'is_tax', $labels ) && is_tax() ) {
-
-					$tax   = get_taxonomy( get_queried_object()->taxonomy );
-					$title = sprintf(
-						$title_new,
-						$tax->labels->singular_name . ':',
-						single_term_title( '', false )
-					);
-
+				foreach ( $labels as $archive ) {
+					if (
+						is_callable( $archive )
+						&& call_user_func( $archive )
+					) {
+						$title = call_user_func( __CLASS__ . '::get_title_' . $archive, $title_sprintf );
+						break;
+					}
 				}
 
 
@@ -174,7 +146,128 @@ class Archive_Title {
 
 
 	/**
-	 * 20) Localization
+	 * 20) Getters
+	 */
+
+		/**
+		 * Get modified title: Category.
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  string $title_sprintf  Format: %1$s = "Category:", %2$s = category title.
+		 */
+		public static function get_title_is_category( $title_sprintf ) {
+
+			// Output
+
+				return sprintf(
+					$title_sprintf,
+					esc_html_x( 'Category:', 'Archive title label.', 'archive-title' ),
+					single_cat_title( '', false )
+				);
+
+		} // /get_title_is_category
+
+
+
+		/**
+		 * Get modified title: Tag.
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  string $title_sprintf  Format: %1$s = "Tag:", %2$s = tag title.
+		 */
+		public static function get_title_is_tag( $title_sprintf ) {
+
+			// Output
+
+				return sprintf(
+					$title_sprintf,
+					esc_html_x( 'Tag:', 'Archive title label.', 'archive-title' ),
+					single_tag_title( '', false )
+				);
+
+		} // /get_title_is_tag
+
+
+
+		/**
+		 * Get modified title: Author.
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  string $title_sprintf  Format: %1$s = "Author:", %2$s = author name.
+		 */
+		public static function get_title_is_author( $title_sprintf ) {
+
+			// Output
+
+				return sprintf(
+					$title_sprintf,
+					esc_html_x( 'Author:', 'Archive title label.', 'archive-title' ),
+					'<span class="vcard">' . get_the_author() . '</span>'
+				);
+
+		} // /get_title_is_author
+
+
+
+		/**
+		 * Get modified title: Custom post type.
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  string $title_sprintf  Format: %1$s = "Archives:", %2$s = post type title.
+		 */
+		public static function get_title_is_post_type_archive( $title_sprintf ) {
+
+			// Output
+
+				return sprintf(
+					$title_sprintf,
+					esc_html_x( 'Archives:', 'Archive title label.', 'archive-title' ),
+					post_type_archive_title( '', false )
+				);
+
+		} // /get_title_is_post_type_archive
+
+
+
+		/**
+		 * Get modified title: Custom taxonomy.
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  string $title_sprintf  Format: %1$s = taxonomy name, %2$s = taxonomy term title.
+		 */
+		public static function get_title_is_tax( $title_sprintf ) {
+
+			// Helper variables
+
+				$tax = get_taxonomy( get_queried_object()->taxonomy );
+
+
+			// Output
+
+				return sprintf(
+					$title_sprintf,
+					$tax->labels->singular_name . ':',
+					single_term_title( '', false )
+				);
+
+		} // /get_title_is_tax
+
+
+
+
+
+	/**
+	 * 30) Localization
 	 */
 
 		/**

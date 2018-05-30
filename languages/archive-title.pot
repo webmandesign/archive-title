@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Archive Title\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu/reference/#links-"
 "support\n"
-"POT-Creation-Date: 2018-05-28 19:30+0200\n"
+"POT-Creation-Date: 2018-05-30 17:18+0200\n"
 "PO-Revision-Date: 2015-05-12 20:39+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -21,108 +21,108 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: includes/classes/class-archive-title.php:124
+#: includes/classes/class-archive-title.php:166
 msgctxt "Archive title label."
 msgid "Category:"
 msgstr ""
 
-#: includes/classes/class-archive-title.php:132
+#: includes/classes/class-archive-title.php:188
 msgctxt "Archive title label."
 msgid "Tag:"
 msgstr ""
 
-#: includes/classes/class-archive-title.php:140
+#: includes/classes/class-archive-title.php:210
 msgctxt "Archive title label."
 msgid "Author:"
 msgstr ""
 
-#: includes/classes/class-archive-title.php:148
+#: includes/classes/class-archive-title.php:232
 msgctxt "Archive title label."
 msgid "Archives:"
 msgstr ""
 
-#: includes/classes/class-options.php:120
+#: includes/classes/class-options.php:124
 msgid "Archive Title Options"
 msgstr ""
 
-#: includes/classes/class-options.php:127
+#: includes/classes/class-options.php:131
 msgid "Archive title labels"
 msgstr ""
 
-#: includes/classes/class-options.php:135
+#: includes/classes/class-options.php:139
 msgid "Archive title labels action"
 msgstr ""
 
-#: includes/classes/class-options.php:241
-msgctxt "Plugin action link."
-msgid "Settings"
-msgstr ""
-
-#: includes/views/form-field-labels.php:20
+#: includes/classes/class-options.php:335
 msgid "Author archive"
 msgstr ""
 
-#: includes/views/form-field-labels.php:21
+#: includes/classes/class-options.php:336
 msgid "The \"Author:\" label."
 msgstr ""
 
-#: includes/views/form-field-labels.php:25
+#: includes/classes/class-options.php:339
 msgid "Category archive"
 msgstr ""
 
-#: includes/views/form-field-labels.php:26
+#: includes/classes/class-options.php:340
 msgid "The \"Category:\" label."
 msgstr ""
 
-#: includes/views/form-field-labels.php:30
+#: includes/classes/class-options.php:343
 msgid "Post type archive"
 msgstr ""
 
-#: includes/views/form-field-labels.php:31
+#: includes/classes/class-options.php:344
 msgid "The \"Archive:\" label."
 msgstr ""
 
-#: includes/views/form-field-labels.php:35
+#: includes/classes/class-options.php:347
 msgid "Tag archive"
 msgstr ""
 
-#: includes/views/form-field-labels.php:36
+#: includes/classes/class-options.php:348
 msgid "The \"Tag:\" label."
 msgstr ""
 
-#: includes/views/form-field-labels.php:40
+#: includes/classes/class-options.php:351
 msgid "Taxonomy archive"
 msgstr ""
 
-#: includes/views/form-field-labels.php:41
+#: includes/classes/class-options.php:352
 msgid "The \"Taxonomy name:\" label."
 msgstr ""
 
-#: includes/views/form-field-labels.php:41
+#: includes/classes/class-options.php:352
 msgid "Every custom taxonomy has a different name."
 msgstr ""
 
-#: includes/views/form-field-labels.php:51
-msgid "Select which archive page title labels you want to control."
-msgstr ""
-
-#: includes/views/form-field-labels_action.php:20
+#: includes/classes/class-options.php:367
 msgid "Remove labels"
 msgstr ""
 
-#: includes/views/form-field-labels_action.php:24
+#: includes/classes/class-options.php:370
 msgid "Hide labels accessibly"
 msgstr ""
 
-#: includes/views/form-field-labels_action.php:25
+#: includes/classes/class-options.php:371
 msgid "Keeps labels readable for assistive technology."
 msgstr ""
 
-#: includes/views/form-field-labels_action.php:26
+#: includes/classes/class-options.php:372
 #, php-format
 msgid "Please make sure your theme provides styles for the \"%s\" CSS class."
 msgstr ""
 
-#: includes/views/form-field-labels_action.php:38
+#: includes/classes/class-options.php:421
+msgctxt "Plugin action link."
+msgid "Settings"
+msgstr ""
+
+#: includes/views/form-field-labels.php:30
+msgid "Select which archive page title labels you want to control."
+msgstr ""
+
+#: includes/views/form-field-labels_action.php:30
 msgid "Select how the selected labels should be treated."
 msgstr ""

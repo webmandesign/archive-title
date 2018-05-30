@@ -7,4 +7,15 @@
  * @version  1.0.0
  */
 
-delete_option( 'archive_title' ); // We have to use direct names here!
+
+
+
+
+/**
+ * Delete plugin options.
+ *
+ * Note: We have to use direct option name here
+ * as plugin's functions and methods are no longer
+ * callable during WordPress plugin uninstall.
+ */
+delete_option( 'archive_title' );

@@ -415,7 +415,6 @@ class Archive_Title_Options {
 		 */
 		public static function plugin_action_links( $links ) {
 
-
 			// Processing
 
 				$links[] = '<a href="' . esc_url( get_admin_url( null, self::$admin_page ) ) . '">'

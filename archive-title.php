@@ -4,7 +4,7 @@
  * Plugin Name:  Archive Title by WebMan
  * Plugin URI:   https://www.webmandesign.eu/portfolio/archive-title-wordpress-plugin/
  * Description:  Provides options to control an archive page title.
- * Version:      0.9.2
+ * Version:      1.0.0
  * Author:       WebMan Design, Oliver Juhas
  * Author URI:   https://www.webmandesign.eu/
  * License:      GNU General Public License v3
@@ -20,8 +20,6 @@
  * @link  https://www.webmandesign.eu
  *
  * @package  Archive Title
- *
- * @todo  Check all files before submitting (https://wordpress.org/plugins/developers/add/).
  */
 
 
