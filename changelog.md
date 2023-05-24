@@ -1,5 +1,17 @@
 # Archive Title Changelog
 
+## 1.0.1, 20230524
+
+### Fixed
+- PHP error when deselecting all options
+
+### File updates
+	archive-title.php
+	changelog.md
+	readme.txt
+	includes/classes/class-options.php
+
+
 ## 1.0.0
 
 * Initial release

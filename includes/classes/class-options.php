@@ -4,7 +4,7 @@
  * Plugin options.
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.0.1
  *
  * Contents:
  *
@@ -188,7 +188,7 @@ class Archive_Title_Options {
 		 * Sanitize/validate plugin options.
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.0.1
 		 *
 		 * @param  array $options
 		 */
@@ -221,14 +221,14 @@ class Archive_Title_Options {
 						 */
 						$options[ $key ] = sanitize_text_field( $options[ $key ] );
 
-					} else if ( 'array' === $sanitize_type ) {
+					} elseif ( 'array' === $sanitize_type ) {
 
 						/**
 						 * Sanitizing an array of multiple values:
 						 * 1. strip the value array to contain only valid values,
 						 */
 						$options[ $key ] = array_intersect(
-							$options[ $key ],
+							(array) $options[ $key ],
 							$allowed_value
 						);
 						/**
@@ -292,7 +292,7 @@ class Archive_Title_Options {
 
 				if ( isset( self::$options[ $option ] ) ) {
 					return self::$options[ $option ];
-				} else if ( isset( self::$defaults[ $option ] ) ) {
+				} elseif ( isset( self::$defaults[ $option ] ) ) {
 					return self::$defaults[ $option ];
 				} else {
 					return null;

@@ -5,8 +5,8 @@ Author URI:        https://www.webmandesign.eu/
 Plugin URI:        https://www.webmandesign.eu/portfolio/archive-title-wordpress-plugin/
 Requires PHP:      5.6.0
 Requires at least: 4.7
-Tested up to:      4.9.6
-Stable tag:        1.0.0
+Tested up to:      6.2
+Stable tag:        1.0.1
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              webman, archive, title, author, category, post type, custom post type, tag, taxonomy, term, a11y, accessible, accessibility ready
