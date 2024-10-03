@@ -1,17 +1,16 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Archive Title\n"
 "Report-Msgid-Bugs-To: https://support.webmandesign.eu\n"
 "POT-Creation-Date: 2024-10-03 20:31+0200\n"
-"PO-Revision-Date: 2015-05-12 20:39+0100\n"
+"PO-Revision-Date: 2024-10-03 20:35+0200\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: WebMan Design\n"
-"Language: en\n"
+"Language: sk_SK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -23,105 +22,122 @@ msgstr ""
 #: includes/classes/class-archive-title.php:163
 msgctxt "Archive title label."
 msgid "Category:"
-msgstr ""
+msgstr "Kategória:"
 
 #: includes/classes/class-archive-title.php:185
 msgctxt "Archive title label."
 msgid "Tag:"
-msgstr ""
+msgstr "Značka:"
 
 #: includes/classes/class-archive-title.php:207
 msgctxt "Archive title label."
 msgid "Author:"
-msgstr ""
+msgstr "Autor:"
 
 #: includes/classes/class-archive-title.php:229
 msgctxt "Archive title label."
 msgid "Archives:"
-msgstr ""
+msgstr "Archívy:"
 
 #: includes/classes/class-options.php:124
 msgid "Archive Title Options"
-msgstr ""
+msgstr "Nastavenia nadpisu archívu"
 
 #: includes/classes/class-options.php:131
 msgid "Archive title labels"
-msgstr ""
+msgstr "Štítky nadpisov archívov"
 
 #: includes/classes/class-options.php:139
 msgid "Archive title labels action"
-msgstr ""
+msgstr "Spracovanie štítkov nadpisov archívov"
 
 #: includes/classes/class-options.php:335
 msgid "Author archive"
-msgstr ""
+msgstr "Archív autora"
 
 #: includes/classes/class-options.php:336
 msgid "The \"Author:\" label."
-msgstr ""
+msgstr "Štítok \"Autor:\"."
 
 #: includes/classes/class-options.php:339
 msgid "Category archive"
-msgstr ""
+msgstr "Archív kategórie"
 
 #: includes/classes/class-options.php:340
 msgid "The \"Category:\" label."
-msgstr ""
+msgstr "Štítok \"Kategória:\"."
 
 #: includes/classes/class-options.php:343
 msgid "Post type archive"
-msgstr ""
+msgstr "Archív typu obsahu"
 
 #: includes/classes/class-options.php:344
 msgid "The \"Archive:\" label."
-msgstr ""
+msgstr "Štítok \"Archívy:\"."
 
 #: includes/classes/class-options.php:347
 msgid "Tag archive"
-msgstr ""
+msgstr "Archív značiek"
 
 #: includes/classes/class-options.php:348
 msgid "The \"Tag:\" label."
-msgstr ""
+msgstr "Štítok \"Značka:\"."
 
 #: includes/classes/class-options.php:351
 msgid "Taxonomy archive"
-msgstr ""
+msgstr "Archív taxonómie"
 
 #: includes/classes/class-options.php:352
 msgid "The \"Taxonomy name:\" label."
-msgstr ""
+msgstr "Štítok \"Názov taxonómie:\"."
 
 #: includes/classes/class-options.php:352
 msgid "Every custom taxonomy has a different name."
-msgstr ""
+msgstr "Každá taxonómia má vlastný názov."
 
 #: includes/classes/class-options.php:367
 msgid "Remove labels"
-msgstr ""
+msgstr "Odstrániť štítky"
 
 #: includes/classes/class-options.php:370
 msgid "Hide labels accessibly"
-msgstr ""
+msgstr "Skryť štítky prístupne"
 
 #: includes/classes/class-options.php:371
 msgid "Keeps labels readable for assistive technology."
-msgstr ""
+msgstr "Zachováva štítky čitateľné pre pomocné technológie."
 
 #: includes/classes/class-options.php:372
 #, php-format
 msgid "Please make sure your theme provides styles for the \"%s\" CSS class."
-msgstr ""
+msgstr "Uistite sa, že vaša téma obsahuje štýly pre CSS triedu \"%s\"."
 
 #: includes/classes/class-options.php:421
 msgctxt "Plugin action link."
 msgid "Settings"
-msgstr ""
+msgstr "Nastavenia"
 
 #: includes/views/form-field-labels.php:30
 msgid "Select which archive page title labels you want to control."
-msgstr ""
+msgstr "Zvoľte štítky nadpisu archívov, ktoré chcete spracovať."
 
 #: includes/views/form-field-labels_action.php:30
 msgid "Select how the selected labels should be treated."
-msgstr ""
+msgstr "Zvoľte spôsob spracovania zvolených štítkov."
+
+#~ msgid "https://www.webmandesign.eu/"
+#~ msgstr "https://www.webmandesign.eu/"
+
+#~ msgid "WebMan Design, Oliver Juhas"
+#~ msgstr "WebMan Design, Oliver Juhás"
+
+#~ msgid "Provides options to control an archive page title."
+#~ msgstr "Poskytuje nastavenia pre kontrolu nadpisu archívnych stránok."
+
+#~ msgid ""
+#~ "https://www.webmandesign.eu/portfolio/archive-title-wordpress-plugin/"
+#~ msgstr ""
+#~ "https://www.webmandesign.eu/portfolio/archive-title-wordpress-plugin/"
+
+#~ msgid "Archive Title by WebMan"
+#~ msgstr "Nadpis Archívu od WebMana"

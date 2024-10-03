@@ -4,14 +4,13 @@
  * Plugin main functionality.
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.0.2
  *
  * Contents:
  *
  *  0) Init
  * 10) Page title
  * 20) Getters
- * 30) Localization
  */
 class Archive_Title {
 
@@ -31,15 +30,13 @@ class Archive_Title {
 		 * Constructor.
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.0.2
 		 */
 		private function __construct() {
 
 			// Processing
 
 				// Setup
-
-					self::load_plugin_textdomain();
 
 					if ( ! defined( 'ARCHIVE_TITLE_CSS_CLASS_A11Y' ) ) {
 						/**
@@ -261,41 +258,6 @@ class Archive_Title {
 				);
 
 		} // /get_title_is_tax
-
-
-
-
-
-	/**
-	 * 30) Localization
-	 */
-
-		/**
-		 * Load the plugin text domain for translation.
-		 *
-		 * Loading the plugin translations should not be done during
-		 * `plugins_loaded` action since that is too early and prevent
-		 * other language related plugins from correctly hooking up with
-		 * `load_textdomain()` function and doing whatever they want to do.
-		 *
-		 * Calling `load_plugin_textdomain()` should be delayed until `init` action!
-		 *
-		 * @link  https://developer.wordpress.org/reference/functions/load_plugin_textdomain/#comment-1568
-		 *
-		 * @since    1.0.0
-		 * @version  1.0.0
-		 */
-		public static function load_plugin_textdomain() {
-
-			// Processing
-
-				load_plugin_textdomain(
-					'archive-title',
-					false,
-					dirname( plugin_basename( ARCHIVE_TITLE_FILE ) ) . '/languages'
-				);
-
-		} // /load_plugin_textdomain
 
 
 
